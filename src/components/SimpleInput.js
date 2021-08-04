@@ -1,7 +1,10 @@
 import React, { useRef, useState } from "react";
 
+import useInput from '../hooks/use-input'
+
 const SimpleInput = (props) => {
   const nameInputRef = useRef();
+  
   const [enteredName, setEnteredName] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
@@ -18,7 +21,7 @@ const SimpleInput = (props) => {
  // deriving the overall validity of the form
   let formIsValid = false;
 
-  if(enteredNameIsValid && emailIsValid) {
+  if (enteredNameIsValid && emailIsValid) {
     formIsValid = true;
   }
 
