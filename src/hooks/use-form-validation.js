@@ -1,16 +1,18 @@
 import  { useState } from "react";
 
-const useInput = (validateValue) => {
+const useFormValidation = (validateValue) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [enteredTouched, setIsTouched] = useState(false);
   
+  
+  const valueChangeHandler = (event) => {
+    console.log(event.target.value);
+    setEnteredValue(event.target.value);
+    
+  };
   const valueIsValid = validateValue(enteredValue);
   const hasError = !valueIsValid && enteredTouched;
   
-  const valueChangeHandler = (event) => {
-    setEnteredValue(event.target.value);
-   
-  };
 
   const inputBlurHandler = () => {
     //validation by blur
@@ -34,4 +36,4 @@ const useInput = (validateValue) => {
   };
 };
 
-export default useInput;
+export default useFormValidation;
